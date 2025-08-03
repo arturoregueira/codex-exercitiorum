@@ -1,0 +1,34 @@
+package partyrobot
+
+import "fmt"
+
+// Welcome greets a person by name.
+func Welcome(name string) string {
+	return "Welcome to my party," + " " + name + "!"
+	//panic("Please implement the Welcome function")
+}
+
+// HappyBirthday wishes happy birthday to the birthday person and exclaims their age.
+func HappyBirthday(name string, age int) string {
+	return fmt.Sprintf("Happy birthday %s! You are now %d years old!", name, age)
+
+	//panic("Please implement the HappyBirthday function")
+	// => Happy birthday Frank! You are now 58 years old!
+}
+
+// AssignTable assigns a table to each guest.
+func AssignTable(name string, table int, neighbor, direction string, distance float64) string {
+	//panic("Please implement the AssignTable function")
+	tableString := fmt.Sprintf("%d", table)
+	if len(tableString) == 2 {
+		tableString = "0" + tableString
+	} else if len(tableString) == 1 {
+		tableString = "00" + tableString
+	}
+	return fmt.Sprintf("Welcome to my party, %s!\nYou have been assigned to table %s. Your table is %s, exactly %.1f meters from here.\nYou will be sitting next to %s.", name, tableString, direction, distance, neighbor)
+
+	// =>
+	// Welcome to my party, Christiane!
+	// You have been assigned to table 027. Your table is on the left, exactly 23.8 meters from here.
+	// You will be sitting next to Frank.
+}
